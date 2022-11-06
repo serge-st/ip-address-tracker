@@ -1,12 +1,26 @@
 import axios, { AxiosResponse } from "axios";
 import { IGeoIpData } from "../store/GeoIpStore";
 
+export type RequestParams = {
+    ip: undefined | string,
+    domain: undefined | string,
+}
 export class IpService {
-    static async getGeoIpData(): Promise<AxiosResponse<IGeoIpData>> {
-        return await axios.get<IGeoIpData>('/getIpData');
+    static async getGeoIpData({ip, domain}: RequestParams): Promise<AxiosResponse<IGeoIpData>> {
+        return await axios.get<IGeoIpData>('/getIpData', {
+            params: {
+                ip,
+                domain
+            }
+        });
     }
 
-    static async getDevData(): Promise<AxiosResponse<IGeoIpData>> {
-        return await axios.get<IGeoIpData>('/getIpDataDev')
+    static async getDevData({ip, domain}: RequestParams): Promise<AxiosResponse<IGeoIpData>> {
+        return await axios.get<IGeoIpData>('/getIpDataDev', {
+            params: {
+                ip,
+                domain
+            }
+        })
     }
 }

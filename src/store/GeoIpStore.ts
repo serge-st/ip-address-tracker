@@ -1,7 +1,8 @@
 import axios from "axios";
 import { makeAutoObservable, runInAction } from "mobx";
-import { IpService } from "../api/IpService";
-import { RootStore } from "./store";
+import { IpService, RequestParams } from "../api/IpService";
+import { SearchType } from "./SearchStore";
+import store, { RootStore } from "./store";
 
 interface ILocation {
     country: string,
@@ -26,10 +27,18 @@ export default class GeoIpStore {
     data: IGeoIpData | null = null;
     isLoading = false;
     error = '';
+    params: RequestParams = {
+        ip: undefined,
+        domain: undefined,
+    }
 
     constructor(rootStore: RootStore) {
         makeAutoObservable(this, {rootStore: false}, {deep: true});
         this.rootStore = rootStore;
+    }
+
+    newDataLookup() {
+        this.getGeoIpData();
     }
 
     async getGeoIpData() {
@@ -37,7 +46,44 @@ export default class GeoIpStore {
             runInAction(() => {
                 this.isLoading = true;
             })
-            const {data} = await IpService.getDevData();
+
+            switch (store.searchStore.type) {
+                case SearchType.Ip:
+                    runInAction(() => {
+                        this.params = {
+                            domain: undefined,
+                            ip: store.searchStore.value,
+                        }
+                    })
+                    break;
+                case SearchType.Domain:
+                    runInAction(() => {
+                        this.params = {
+                            ip: undefined,
+                            domain: store.searchStore.value,
+                        }
+                    })
+                    break;
+                case SearchType.Empty:
+                    runInAction(() => {
+                        this.params = {
+                            ip: undefined,
+                            domain: undefined,
+                        }
+                    })
+                    break;
+                default:
+                    runInAction(() => {
+                        this.params = {
+                            ip: undefined,
+                            domain: undefined,
+                        }
+                    })
+                    break;
+            }
+
+            const {data} = await IpService.getGeoIpData(this.params);
+
             runInAction(() => {
                 this.data = data;
             })

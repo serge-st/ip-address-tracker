@@ -23,15 +23,6 @@ const Header: FC = observer(() => {
                 ?
                 <div className='ip_ui_container'>
                     <h1>IP Address Tracker</h1>
-                    <div
-                        style={{
-                            height: 50,
-                            width: 50,
-                            background: store.searchStore.isAllowed ? 'teal' : 'tomato'
-                        }}
-                    >
-        
-                    </div>
                     <MyInput />
                     <div className='ip_data_container'>
                         <div className="data_block">

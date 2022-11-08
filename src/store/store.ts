@@ -7,7 +7,7 @@ export class RootStore {
 
     constructor() {
         this.searchStore = new SearchStore(this);
-        this.geoIpStore = new GeoIpStore(this)
+        this.geoIpStore = new GeoIpStore(this);
     }
 }
 

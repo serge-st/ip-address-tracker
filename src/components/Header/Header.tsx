@@ -1,8 +1,9 @@
+import './Header.css';
 import { FC, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import store from '../store/store';
-import MyInput from './MyInput';
-import Loader from './Loader/Loader';
+import store from '../../store/store';
+import MyInput from '../MyInput/MyInput';
+import Loader from '../Loader/Loader';
 
 const Header: FC = observer(() => {
     useEffect(() => {
@@ -21,8 +22,8 @@ const Header: FC = observer(() => {
         <>
             {store.geoIpStore.data
                 ?
-                <div className='ip_ui_container'>
-                    <h1>IP Address Tracker</h1>
+                <div className='ip_ui_container' >
+                    <h1 className='title'>IP Address Tracker</h1>
                     <MyInput />
                     <div className='ip_data_container'>
                         <div className="data_block">

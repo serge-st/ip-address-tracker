@@ -8,6 +8,7 @@ import store from "../../store/store";
 
 interface IpMapProps {
     isLoading: boolean;
+    height: number;
 }
 
 const ChangeView: FC = observer(() => {
@@ -19,7 +20,7 @@ const ChangeView: FC = observer(() => {
     return null
 })
 
-const IpMap: FC<IpMapProps> = observer(({isLoading}) => {
+const IpMap: FC<IpMapProps> = observer(({isLoading, height}) => {
     const [position, setPosition] = useState<LatLngTuple | undefined>(undefined);
     const customIcon = new Icon({
         iconUrl: "/icon-location.svg",
@@ -33,14 +34,19 @@ const IpMap: FC<IpMapProps> = observer(({isLoading}) => {
         }
     }, [isLoading]);
 
+
+
     return (
-        <div id='map'>
+        <div id='map' style={{
+            height
+        }}>
             {position
                 ?
                 <MapContainer
                     center={position} 
-                    zoom={11} 
+                    zoom={12} 
                     scrollWheelZoom={false}
+                    zoomControl={false}
                 >
                     <ChangeView />
                     <TileLayer

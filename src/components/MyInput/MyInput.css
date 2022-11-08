@@ -1,0 +1,42 @@
+.input_container {
+    /* outline: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    border-radius: var(--radius);
+}
+
+input {
+    padding: 18px 24px;
+    font-size: 18px;
+    border-radius: var(--radius) 0 0 var(--radius);
+    background: var(--white);
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: var(--light-gray);
+}
+
+button {
+	padding: 0 24px;
+	background: black;
+    border-radius: 0 var(--radius) var(--radius) 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+button:hover {
+    background: var(--dark-gray)
+}
+
+button:active {
+    background: hsl(0, 0%, 30%)
+}
+
+button:disabled {
+    background: hsl(0, 0%, 40%)
+}

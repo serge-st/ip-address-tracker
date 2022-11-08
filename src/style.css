@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
-.app {
-    height: 100vh;
+:root {
+    --radius: 14px;
+    --margin: 24px;
+    --padding: 24px;
+    --white: white;
+    --light-gray: hsl(0, 0%, 59%);
+    --dark-gray: hsl(0, 0%, 17%);
 }

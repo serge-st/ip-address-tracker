@@ -1,0 +1,41 @@
+.ip_ui_container {
+    padding: var(--padding);
+    background-image: url('./pattern-bg.png');
+    height: 280px;
+    z-index: 0;
+}
+
+.title {
+    margin-bottom: var(--margin);
+    text-align: center;
+    color: var(--white);
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.ip_data_container {
+    position: relative;
+    z-index: 1;
+    padding: var(--padding);
+    margin-top: var(--margin);
+    background: var(--white);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.data_block:not(:last-child) {
+    margin-bottom: var(--margin);
+}
+
+.data_name {
+    margin-bottom: 7px;
+    color: var(--light-gray);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.data_value {
+    font-size: large;
+    font-weight: 500;
+}

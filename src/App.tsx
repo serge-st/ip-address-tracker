@@ -32,22 +32,16 @@ const App: FC = observer(() => {
 
     return (
         <div className='app'>
-            {/* {store.geoIpStore.data
-                ? */}
-                <>
-                    <Loader visible={store.geoIpStore.isLoading}/>
-                    <Header />
-                    <IpMap
-                        height={remainingSpace}
-                        isLoading={store.geoIpStore.isLoading}
-                    />
-                    <div className="attribution" ref={attrRef}>
-                        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
-                        Coded by <a href="https://github.com/serge-st/ip-address-tracker" target="_blank" rel="noreferrer">Serge St</a>.
-                    </div>
-                </>
-                {/* : null
-            } */}
+            <Loader visible={store.geoIpStore.isLoading}/>
+            <Header />
+            <IpMap
+                height={remainingSpace}
+                isLoading={store.geoIpStore.isLoading}
+            />
+            <div className="attribution" ref={attrRef}>
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
+                Coded by <a href="https://github.com/serge-st/ip-address-tracker" target="_blank" rel="noreferrer">Serge St</a>.
+            </div>
         </div>
     );
 });

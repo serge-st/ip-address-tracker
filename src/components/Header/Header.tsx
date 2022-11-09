@@ -8,14 +8,6 @@ import useWindowSize from '../../hooks/useWindowSize';
 const Header: FC = observer(() => {
     const [, appWidth] = useWindowSize();
 
-    // useEffect(() => {
-    //     store.geoIpStore.getGeoIpData();
-    // }, [])
-
-    // if (store.geoIpStore.error) {
-    //     return <pre>{store.geoIpStore.error}</pre>
-    // }
-
     return (
         <>
             {store.geoIpStore.data

@@ -3,23 +3,18 @@ import { FC, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import store from '../../store/store';
 import MyInput from '../MyInput/MyInput';
-import Loader from '../Loader/Loader';
 import useWindowSize from '../../hooks/useWindowSize';
 
 const Header: FC = observer(() => {
-    const [_, appWidth] = useWindowSize();
+    const [, appWidth] = useWindowSize();
 
-    useEffect(() => {
-        store.geoIpStore.getGeoIpData();
-    }, [])
+    // useEffect(() => {
+    //     store.geoIpStore.getGeoIpData();
+    // }, [])
 
-    if (store.geoIpStore.error) {
-        return <pre>{store.geoIpStore.error}</pre>
-    }
-
-    if (store.geoIpStore.isLoading) {
-        return <Loader />
-    }
+    // if (store.geoIpStore.error) {
+    //     return <pre>{store.geoIpStore.error}</pre>
+    // }
 
     return (
         <>

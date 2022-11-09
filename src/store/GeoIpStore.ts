@@ -25,7 +25,7 @@ export interface IGeoIpData {
 export default class GeoIpStore {
     rootStore: RootStore;
     data: IGeoIpData | null = null;
-    isLoading = false;
+    isLoading = true;
     error = '';
     params: RequestParams = {
         ip: undefined,

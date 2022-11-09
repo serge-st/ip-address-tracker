@@ -9,6 +9,7 @@
 input {
     padding: 18px 24px;
     font-size: 17px;
+    font-family: inherit;
     border-radius: var(--radius) 0 0 var(--radius);
     background: var(--white);
     width: 100%;

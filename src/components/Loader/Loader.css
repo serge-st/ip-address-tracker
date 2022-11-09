@@ -1,11 +1,24 @@
-:root {
-    --color: black;
+.loader_modal {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-gray);
+    display: none;
 }
 
-.loader_container {
-    /* display: flex;
-    justify-items: center;
-    align-items: center; */
+.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader_title {
+    color: var(--white);
+    font-weight: 500;
+    font-size: x-large;
 }
 
 .lds-roller {
@@ -25,7 +38,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--color);
+    background: var(--white);
     margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {

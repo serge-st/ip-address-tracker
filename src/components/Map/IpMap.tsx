@@ -34,8 +34,6 @@ const IpMap: FC<IpMapProps> = observer(({isLoading, height}) => {
         }
     }, [isLoading]);
 
-
-
     return (
         <div id='map' style={{
             height

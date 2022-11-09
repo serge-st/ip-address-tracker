@@ -9,20 +9,17 @@ import useWindowSize from './hooks/useWindowSize';
 
 const App: FC = observer(() => {
     const [remainingSpace, setRemainingSpace] = useState<number>(0);
-    const appHeight = useWindowSize();
+    const [appHeight] = useWindowSize();
     const attrRef = useRef<HTMLDivElement>(null);
     const headerHeight = 280;
 
     useEffect(() => {
         if (attrRef.current) {
             setRemainingSpace(
-                appHeight - headerHeight - attrRef.current.clientHeight
+                appHeight -1 - headerHeight - attrRef.current.clientHeight
             )
         }
     }, [appHeight])
-
-    console.log('appHeight', appHeight)
-    console.log('remainingSpace', remainingSpace)
 
     return (
         <div className='app'>

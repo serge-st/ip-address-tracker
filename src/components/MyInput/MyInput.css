@@ -1,5 +1,6 @@
 .input_container {
-    /* outline: 1px solid red; */
+    margin: auto;
+    max-width: 450px;
     display: flex;
     flex-direction: row;
     border-radius: var(--radius);
@@ -7,13 +8,12 @@
 
 input {
     padding: 18px 24px;
-    font-size: 18px;
+    font-size: 17px;
     border-radius: var(--radius) 0 0 var(--radius);
     background: var(--white);
     width: 100%;
     border: none;
     outline: none;
-    cursor: pointer;
 }
 
 ::placeholder {

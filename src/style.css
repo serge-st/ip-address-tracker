@@ -12,3 +12,9 @@
     --light-gray: hsl(0, 0%, 59%);
     --dark-gray: hsl(0, 0%, 17%);
 }
+
+@media screen and (min-width: 700px) {
+    :root {
+        --margin: 50px
+    }
+}

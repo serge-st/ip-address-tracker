@@ -82,7 +82,7 @@ export default class GeoIpStore {
                     break;
             }
 
-            const {data} = await IpService.getDevData(this.params);
+            const {data} = await IpService.getGeoIpData(this.params);
 
             runInAction(() => {
                 this.data = data;

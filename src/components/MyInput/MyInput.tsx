@@ -1,9 +1,13 @@
 import './MyInput.css';
-import { FC, KeyboardEvent } from 'react';
+import { FC, KeyboardEvent, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import store from '../../store/store';
 
-const MyInput: FC = observer(() => {
+interface MyInputProps {
+    width: number;
+}
+
+const MyInput: FC<MyInputProps> = observer(({width}) => {
     const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.code === 'Enter' && store.searchStore.isAllowed) {
             store.geoIpStore.newDataLookup();
@@ -14,7 +18,9 @@ const MyInput: FC = observer(() => {
         <div className='input_container'>
             <input 
                 type='text'
-                placeholder='Search For any IP address or domain'
+                placeholder={
+                    width < 450 ? 'Search IP or Domain' : 'Search For any IP Address or Domain'
+                }
                 value={store.searchStore.value} 
                 onChange={(e) => store.searchStore.handleInputChange(e)}
                 onKeyDown={(e) => handleEnter(e)}

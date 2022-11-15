@@ -7,7 +7,7 @@ export type RequestParams = {
 }
 export class IpService {
     static async getGeoIpData({ip, domain}: RequestParams): Promise<AxiosResponse<IGeoIpData>> {
-        return await axios.get<IGeoIpData>('/getIpData', {
+        return await axios.get<IGeoIpData>('/api/getIpData', {
             params: {
                 ip,
                 domain
@@ -16,7 +16,7 @@ export class IpService {
     }
 
     static async getDevData({ip, domain}: RequestParams): Promise<AxiosResponse<IGeoIpData>> {
-        return await axios.get<IGeoIpData>('/getIpDataDev', {
+        return await axios.get<IGeoIpData>('/api/getIpDataDev', {
             params: {
                 ip,
                 domain

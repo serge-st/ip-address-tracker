@@ -41,3 +41,15 @@ button:active {
 button:disabled {
     background: hsl(0, 0%, 40%)
 }
+
+@media only screen and (max-width: 450px) {
+    .wide {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 451px) {
+    .narrow {
+        display: none;
+    }
+}

@@ -1,14 +1,12 @@
 import './MyInput.css';
-import { FC, KeyboardEvent } from 'react';
+import { FC, KeyboardEvent, ComponentPropsWithoutRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import store from '../../store/store';
 import { runInAction } from 'mobx';
 
-interface MyInputProps {
-    width: number;
-}
+interface MyInputProps extends ComponentPropsWithoutRef<"input"> {}
 
-const MyInput: FC<MyInputProps> = observer(({width}) => {
+const MyInput: FC<MyInputProps> = observer(({className, placeholder}) => {
     const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.code === 'Enter' && store.searchStore.isAllowed) {
             store.geoIpStore.newDataLookup();
@@ -26,12 +24,10 @@ const MyInput: FC<MyInputProps> = observer(({width}) => {
     }
 
     return (
-        <div className='input_container'>
-            <input 
+        <div className={`input_container ${className}`}>
+            <input
                 type='text'
-                placeholder={
-                    width < 450 ? 'Search IP or Domain' : 'Search For any IP Address or Domain'
-                }
+                placeholder={placeholder}
                 value={store.searchStore.value} 
                 onChange={(e) => store.searchStore.handleInputChange(e)}
                 onKeyDown={(e) => handleEnter(e)}

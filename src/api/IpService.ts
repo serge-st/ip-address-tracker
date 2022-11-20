@@ -14,13 +14,4 @@ export class IpService {
             }
         });
     }
-
-    static async getDevData({ip, domain}: RequestParams): Promise<AxiosResponse<IGeoIpData>> {
-        return await axios.get<IGeoIpData>('/api/getIpDataDev', {
-            params: {
-                ip,
-                domain
-            }
-        })
-    }
 }

@@ -1,13 +1,10 @@
 import './Header.css';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import store from '../../store/store';
 import MyInput from '../MyInput/MyInput';
-import useWindowSize from '../../hooks/useWindowSize';
 
 const Header: FC = observer(() => {
-    const [, appWidth] = useWindowSize();
-
     return (
         <>
             {store.geoIpStore.data
@@ -15,7 +12,14 @@ const Header: FC = observer(() => {
                 <header>
                     <h1 className='title'>IP Address Tracker</h1>
                     <div className="ip_ui_container">
-                        <MyInput width={appWidth} />
+                        <MyInput 
+                            className='wide'
+                            placeholder='Search For any IP Address or Domain'
+                        />
+                        <MyInput 
+                            className='narrow'
+                            placeholder='Search IP or Domain'
+                        />
                         <div className='ip_data_container'>
                             <div className="data_block">
                                 <div className="data_name">IP ADDRESS</div>

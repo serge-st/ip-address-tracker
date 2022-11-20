@@ -1,19 +1,13 @@
 import './style.css'
 import './App.css'
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import Header from './components/Header/Header';
 import IpMap from './components/Map/IpMap';
 import store from './store/store';
-import useWindowSize from './hooks/useWindowSize';
 import Loader from './components/Loader/Loader';
 
 const App: FC = observer(() => {
-    const [remainingSpace, setRemainingSpace] = useState<number>(0);
-    const [appHeight] = useWindowSize();
-    const attrRef = useRef<HTMLDivElement>(null);
-    const headerHeight = 280;
-
     useEffect(() => {
         store.geoIpStore.getGeoIpData();
     }, []);
@@ -22,23 +16,14 @@ const App: FC = observer(() => {
         return <pre>{store.geoIpStore.error}</pre>
     }
 
-    useEffect(() => {
-        if (attrRef.current) {
-            setRemainingSpace(
-                appHeight -1 - headerHeight - attrRef.current.clientHeight
-            )
-        }
-    }, [appHeight])
-
     return (
         <div className='app'>
             <Loader visible={store.geoIpStore.isLoading}/>
             <Header />
             <IpMap
-                height={remainingSpace}
                 isLoading={store.geoIpStore.isLoading}
             />
-            <div className="attribution" ref={attrRef}>
+            <div className="attribution">
                 Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
                 Coded by <a href="https://github.com/serge-st/ip-address-tracker" target="_blank" rel="noreferrer">Serge St</a>.
             </div>

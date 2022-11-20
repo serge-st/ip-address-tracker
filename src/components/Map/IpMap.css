@@ -1,3 +1,9 @@
+#map {
+    flex: auto;
+    position: relative;
+    z-index: -1;
+}
+
 .leaflet-container {
     width: 100%;
     min-height: 100%;

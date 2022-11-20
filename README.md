@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/serge-st/ip-address-tracker)
-- Live Site URL: [Add live site URL here](https://lookupdomain.biz)
+- Solution URL: [GitHub Repo](https://github.com/serge-st/ip-address-tracker)
+- Live Site URL: [lookupdomain.biz](https://lookupdomain.biz)
 
 ## My process
 
